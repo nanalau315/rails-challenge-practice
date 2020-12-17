@@ -1,16 +1,18 @@
 <h1><%= @building.name %></h1>
-
+<h3>Country: <%= @building.country %></h3>
+<h3>Address: <%= @building.address %></h3>
+<h4>Rent per Floor: $<%= @building.rent_per_floor %></h4>
+<h4>Number_of_Floors: <%= @building.number_of_floors %></h4>
+<h3>Companies in this Building:</h3>
 <ul>
 <% @building.companies.each do |c| %>
 <li><%= link_to c.name, company_path(c) %></li>
 <% end %>
 </ul>
 
-<p>Number of floors:</p>
-<%= @building.number_of_floors %>
-
 <p>Total Rent in this Building: 
 <%= @building.companies.length * @building.rent_per_floor %></p>
-
 <p>Total Employees in this Building:</p>
 <%= @building.num_employees %>
+<br><br>
+<%= button_to "Add Company to This Building", new_company_path, method: :get %>

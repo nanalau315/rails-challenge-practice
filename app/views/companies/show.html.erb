@@ -13,7 +13,8 @@
 <% @company.employees.each do |e| %>
 <li><%= link_to e.name, employee_path(e) %></li><br>
 <% end%>
-<%= button_to "Add Employee", add_employee_path, method: :get %><br>
+<%= button_to "Add Employee", new_employee_path, method: :get %><br>
 <%# button_to "Delete Employee", delete_employee_path, method: :delete %>
 <h4>Total Rent this Company is Paying:</h4>
 $<%= @company.total_rent %>!!!
+<%= button_to "Delete Company", delete_company_path, method: :delete %>

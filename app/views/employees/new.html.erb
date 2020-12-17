@@ -1,3 +1,10 @@
+<% if flash[:errors]%>
+<% flash[:errors].each do |e|%>
+<ul>
+<li><%= e %></li>
+<% end %>
+<% end %>
+</ul>
 <h1>New Employee</h1>
 
 <%= form_for @employee do |f| %>

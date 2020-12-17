@@ -15,7 +15,18 @@ class CompaniesController < ApplicationController
 
     def create
         @company = Company.create(company_params(:name))
-        redirect_to company_path(@company)
+        if @company.valid?
+            redirect_to company_path(@company)
+        else
+            flash[:errors] = @company.errors.full_messages
+            redirect_to new_company_path
+        end
+    end
+
+    def destroy
+        @company = Company.find(params[:id])
+        @company.destroy
+        redirect_to companies_path
     end
 
     private

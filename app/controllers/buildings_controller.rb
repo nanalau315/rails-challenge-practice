@@ -13,8 +13,12 @@ class BuildingsController < ApplicationController
     end
 
     def update
-        @building.update(building_params(:name, :country, :address, :rent_per_floor, :number_of_floors))
-        redirect_to building_path(@building)
+        if @building.update(building_params(:name, :country, :address, :rent_per_floor, :number_of_floors))
+            redirect_to building_path(@building)
+        else
+            flash[:errors] = @building.errors.full_messages
+            redirect_to edit_building_path
+        end
     end
 
     private

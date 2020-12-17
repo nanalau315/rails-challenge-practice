@@ -11,15 +11,15 @@ Rails.application.routes.draw do
 
   #company need: new, create, index, show, delete
   get 'companies', to: 'companies#index', as: 'companies'
-  get 'companies/new', to: 'companies#new', as: 'new_companies'
+  get 'companies/new', to: 'companies#new', as: 'new_company'
   get 'companies/:id', to: 'companies#show', as: 'company'
   # get 'companies/:id/edit', to: 'companies#edit', as: 'edit_company'
   post 'companies', to: 'companies#create'
   # patch 'companies/:id', to: 'companies#update'
-  # delete 'companies/:id', to: 'companies#destroy'
+  delete 'companies/:id', to: 'companies#destroy', as: 'delete_company'
 
   # get 'employees', to: 'employees#index', as: 'employees'
-  get 'employees/new', to: 'employees#new', as: 'add_employee'
+  get 'employees/new', to: 'employees#new', as: 'new_employee'
   get 'employees/:id', to:'employees#show', as: 'employee'
   # get 'employees/:id/edit', to: 'employees#edit', as: 'edit_employee'
   post 'employees/', to: 'employees#create'
