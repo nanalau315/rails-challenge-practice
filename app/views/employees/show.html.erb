@@ -1,0 +1,10 @@
+<h1><%= @employee.name %></h1>
+
+<h3><%= @employee.title %></h3>
+
+<h3><%= @employee.company.name %></h3>
+
+
+
+
+<%= button_to "Delete This Employee", delete_employee_path, method: :delete %>

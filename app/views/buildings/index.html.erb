@@ -1,0 +1,9 @@
+<h1>All Buildings</h1>
+<p>We got <%= @buildings.length %> buildings in total!!</p>
+
+<% @buildings.each do |b| %>
+<p><%= link_to b.name, building_path(b) %></p>
+<% b.number_of_floors_available.each do |f| %>
+<li><%= f %></li>
+    <% end %>
+<% end %>

@@ -1,0 +1,20 @@
+<h3>The Building this Office is in:</h3>
+<%= @office.building.name %>
+
+<h3>The Company using This Office Currently:</h3>
+<%= @office.company.name %>
+
+<h3>The Employees Working in This Office:</h3>
+<% @office.company.employees.each do |e| %>
+<li><%= e.name %>||<%= e.title %></li>
+<% end %>
+
+
+
+
+
+
+
+
+
+
